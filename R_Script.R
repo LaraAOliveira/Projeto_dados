@@ -99,7 +99,11 @@ cap_cisp <- rj_cisp %>%
 plot_cap_cisp <- cap_cisp %>%
   ggplot() +
   geom_sf(aes(geometry = geometry), alpha = 5) +
-  labs(title = "DivisÃ£o das CISP na Cidade do Rio de Janeiro") +
+  geom_sf_label(aes(label = cisp), stat = "sf_coordinates",
+                position = "identity") + 
+  labs(title = "Divisão das CISP na Cidade do Rio de Janeiro", 
+       y = "Latitude",
+       x = "Longitude") +
   theme_bw()
 
 ### mapa para roubo na capital
