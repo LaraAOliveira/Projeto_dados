@@ -16,6 +16,9 @@ Todas as tabelas geradas pelo código podem ser encontradas em formato .csv na p
 ### Arquivo de apoio
 A pasta Apoio contém um documento do Instituto de Segurança Pública com a relação entre CISP-AISP-Unidade Territorial-Município-Região de Governo.
 
+### Projeto final
+Pasta onde se encontra o arquivo pdf com maiores detalhes sobre metodologia e análise dos dados.
+
 ## Outputs
 Como resultado do projeto foram montados diversos gráficos que podem ser encontrados na pasta "Plots". Dentre eles estão os gráficos de evolução anual de roubo e mapas da cidade do Rio de Janeiro por nível de roubo em cada CISP da capital.
 
