@@ -79,6 +79,7 @@ roubo_cisp <- isp_cisp %>%
 write.table(roubo_cisp, file = "roubo_cisp.csv", row.names = FALSE, sep = ";")
 
 # baixando shapefile para mapa do estado
+## instrucoes para baixar estao no README.md
 rj_cisp <- st_read("lm_dp_2019.shp")
 
 ## renomeando primeira coluna
@@ -91,7 +92,7 @@ plot_rj_cisp <- rj_cisp %>%
   labs(title = "DivisÃ£o das CISP no Estado do Rio de Janeiro") +
   theme_bw()
 
-## criando mapa sÃ³ para capital
+## criando mapa para capital
 cap_cisp <- rj_cisp %>%
   filter(cisp %in% c(1:44))
 
@@ -139,7 +140,7 @@ cap_cisp_15$cel_c_s <- as.numeric(cap_cisp_15$cel_c_s)
 cap_cisp_15$veic_c_s <- as.numeric(cap_cisp_15$veic_c_s)
 cap_cisp_roubos_15 <- left_join(cap_cisp, cap_cisp_15, by = "cisp")
 
-#####escrevendo csv file
+##### escrevendo csv file
 write.table(cap_cisp_15, file = "cap_cisp_15.csv", row.names = FALSE, sep = ";")
 
 ##### grafico
@@ -166,7 +167,7 @@ cap_cisp_19$cel_c_s <- as.numeric(cap_cisp_19$cel_c_s)
 cap_cisp_19$veic_c_s <- as.numeric(cap_cisp_19$veic_c_s)
 cap_cisp_roubos_19 <- left_join(cap_cisp, cap_cisp_19, by = "cisp")
 
-#####escrevendo csv file
+##### escrevendo csv file
 write.table(cap_cisp_19, file = "cap_cisp_19.csv", row.names = FALSE, sep = ";")
 
 ##### grafico
@@ -193,7 +194,7 @@ cap_cisp_20$cel_c_s <- as.numeric(cap_cisp_20$cel_c_s)
 cap_cisp_20$veic_c_s <- as.numeric(cap_cisp_20$veic_c_s)
 cap_cisp_roubos_20 <- left_join(cap_cisp, cap_cisp_20, by = "cisp")
 
-#####escrevendo csv file
+##### escrevendo csv file
 write.table(cap_cisp_20, file = "cap_cisp_20.csv", row.names = FALSE, sep = ";")
 
 ##### grafico
