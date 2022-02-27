@@ -13,3 +13,6 @@ Todas as tabelas geradas pelo código podem ser encontradas em formato .csv na p
 
 ## Outputs
 Como resultado do projeto foram montados diversos gráficos que podem ser encontrados na pasta "Plots". Dentre eles estão os gráficos de evolução anual de roubo e mapas da cidade do Rio de Janeiro por nível de roubo em cada CISP da capital.
+
+## Docker
+O script para ser usado no docker e o Dockerfile estão na pasta "Docker". Por conta de erros para utilizar os pacotes 'basedosdados' e 'sf' no docker, o Projeto_docker.R foi alterado para não precisar de nenhum desses pacotes. Desse modo, a segunda parte do trabalho, onde são montados os mapas, não pôde ser incluída no script alterado. 
