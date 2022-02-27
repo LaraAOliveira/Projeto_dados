@@ -5,7 +5,7 @@ library(sf)
 library(gridExtra)
 
 # pegando os dados
-set_billing_id("projeto-estatistica-341521")
+set_billing_id("<your billing ID>")
 query <- "SELECT*FROM basedosdados.br_isp_estatisticas_seguranca.evolucao_mensal_cisp"
 
 isp_cisp = basedosdados::read_sql(query)
