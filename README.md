@@ -6,7 +6,9 @@ O intuito do trabalho foi analisar roubos na cidade do Rio de Janeiro ao longo d
 
 ## Metodologia
 Os dados são do Instituto de Segurança Pública do Rio de Janeiro e foram retirados a partir do pacote 'basedosdados' para o R. Para sua análise foram utilizados também outros pacotes: tidyverse, sf, ggplot2, gridExtra
-Para os mapas foram utilizados os arqvuios shapefiles baixados do site do Instituto de Segurança Pública. Para rodar o código é necessário que todos os arquivos da pasta "Shapefile" desse repositório estejam baixados no diretório.
+
+Para os mapas foram utilizados os arqvuios shapefiles baixados do site do Instituto de Segurança Pública. Para rodar o código é necessário que todos os arquivos da pasta "Shapefile" desse repositório estejam baixados no diretório. Para baixar arquivos diretamente do site: http://www.ispdados.rj.gov.br/Conteudo.html (escolher baixar shapefile de Bases Cartográficas Digitais – Circunscrições Integradas de Segurança Pública (CISP) - Limites de 2019)
+
 Todas as tabelas geradas pelo código podem ser encontradas em formato .csv na pasta "CSV files"
 
 ## Outputs
