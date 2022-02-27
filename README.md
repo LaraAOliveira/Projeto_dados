@@ -9,6 +9,8 @@ Os dados são do Instituto de Segurança Pública do Rio de Janeiro e foram reti
 
 Para os mapas foram utilizados os arqvuios shapefiles baixados do site do Instituto de Segurança Pública. Para rodar o código é necessário que todos os arquivos da pasta "Shapefile" desse repositório estejam baixados no diretório. Para baixar arquivos diretamente do site: http://www.ispdados.rj.gov.br/Conteudo.html (escolher baixar shapefile de Bases Cartográficas Digitais – Circunscrições Integradas de Segurança Pública (CISP) - Limites de 2019)
 
+O script do R com todos os códigos está na página inicial do repositório sob o nome R_Script.R
+
 Todas as tabelas geradas pelo código podem ser encontradas em formato .csv na pasta "CSV files"
 
 ### Arquivo de apoio
@@ -19,3 +21,4 @@ Como resultado do projeto foram montados diversos gráficos que podem ser encont
 
 ## Docker
 O script para ser usado no docker e o Dockerfile estão na pasta "Docker". Por conta de erros para utilizar os pacotes 'basedosdados' e 'sf' no docker, o Projeto_docker.R foi alterado para não precisar de nenhum desses pacotes. Desse modo, a segunda parte do trabalho, onde são montados os mapas, não pôde ser incluída no script alterado. 
+O script original segue inalterado na página principal do Repositório (R_Script.R)
