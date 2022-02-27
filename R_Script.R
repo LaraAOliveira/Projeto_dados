@@ -1,4 +1,5 @@
 library(basedosdados)
+library(dplyr)
 library(tidyverse)
 library(ggplot2)
 library(sf)
