@@ -1,16 +1,11 @@
-
 library(basedosdados)
 library(tidyverse)
-library(data.table)
 library(ggplot2)
-library(zoo)
-library(lubridate)
-library(reshape2)
 library(sf)
 library(gridExtra)
 
 # pegando os dados
-basedosdados::set_billing_id("projeto-estatistica-341521")
+set_billing_id("projeto-estatistica-341521")
 query <- "SELECT*FROM basedosdados.br_isp_estatisticas_seguranca.evolucao_mensal_cisp"
 
 isp_cisp = basedosdados::read_sql(query)
@@ -41,29 +36,26 @@ plot_roubo_cel <- df_roubos %>%
        y = "Total de roubos a cada 100 mil habitantes",
        x = "Anos") +
   theme_bw()
-plot_roubo_cel
 
 ## veciulos
 plot_roubo_veiculo <- df_roubos %>%
   ggplot(aes(x=ano, y=veic_s)) +
   geom_line(size = 1) +
   scale_y_continuous(breaks = c(6164, 10000, 15000, 20000, 25894)) +
-  labs(title = "Roubo de veículos por ano a cada 100 mil habitantes \nna cidade do Rio de Janeiro",
+  labs(title = "Roubo de veiculos por ano a cada 100 mil habitantes \nna cidade do Rio de Janeiro",
        y = "Total de roubos a cada 100 mil habitantes",
        x = "Anos") +
   theme_bw()
-plot_roubo_veiculo
 
 ## transeunte
 plot_roubo_transeunte <- df_roubos %>%
-ggplot(aes(x=ano, y=tran_s)) +
+  ggplot(aes(x=ano, y=tran_s)) +
   geom_line(size = 1) +
   scale_y_continuous(breaks = c(11064, 15000, 20000, 25000, 30000, 35000, 40000, 45518)) +
   labs(title = "Roubo de transeunte por ano a cada 100 mil habitantes \nna cidade do Rio de Janeiro",
        y = "Total de roubos a cada 100 mil habitantes",
        x = "Anos") +
   theme_bw()
-plot_roubo_transeunte
 
 ## coletivo
 plot_roubo_coletivo <- df_roubos %>%
@@ -74,7 +66,6 @@ plot_roubo_coletivo <- df_roubos %>%
        y = "Total de roubos a cada 100 mil habitantes",
        x = "Anos") +
   theme_bw()
-plot_roubo_coletivo
 
 # pegando o numero de roubo por cisp da capital
 roubo_cisp <- isp_cisp %>%
@@ -97,20 +88,18 @@ colnames(rj_cisp)[1] <- "cisp"
 plot_rj_cisp <- rj_cisp %>%
   ggplot() +
   geom_sf(aes(geometry = geometry), alpha = 5) +
-  labs(title = "Divisão das CISP no Estado do Rio de Janeiro") +
+  labs(title = "DivisÃ£o das CISP no Estado do Rio de Janeiro") +
   theme_bw()
-plot_rj_cisp
 
-## criando mapa só para capital
+## criando mapa sÃ³ para capital
 cap_cisp <- rj_cisp %>%
   filter(cisp %in% c(1:44))
 
 plot_cap_cisp <- cap_cisp %>%
-   ggplot() +
-   geom_sf(aes(geometry = geometry), alpha = 5) +
-   labs(title = "Divisão das CISP na Cidade do Rio de Janeiro") +
-   theme_bw()
-plot_cap_cisp
+  ggplot() +
+  geom_sf(aes(geometry = geometry), alpha = 5) +
+  labs(title = "DivisÃ£o das CISP na Cidade do Rio de Janeiro") +
+  theme_bw()
 
 ### mapa para roubo na capital
 #### 2011
@@ -132,15 +121,13 @@ plot_c_11 <- cap_cisp_roubos_11 %>%
   geom_sf(aes(geometry = geometry, fill = cel_c_s), alpha = 5, col = "white") +
   scale_fill_viridis_c(name = "Roubos", labels = scales::comma) +
   labs(title = "Mapa dos Roubos de Celular na Cidade do Rio de Janeiro", subtitle = "2011")
-plot_c_11
 
 plot_v_11 <- cap_cisp_roubos_11 %>%
   ggplot() +
   geom_sf(aes(geometry = geometry, fill = veic_c_s), alpha = 5, col = "white") +
   scale_fill_viridis_c(name = "x", labels = scales::comma) +
-  labs(title = "Mapa dos Roubos de Veículos da Cidade do Rio de Janeiro",
+  labs(title = "Mapa dos Roubos de Veiculos da Cidade do Rio de Janeiro",
        subtitle = "2011")
-plot_v_11
 
 #### 2015
 cap_cisp_15 <- roubo_cisp %>%
@@ -161,15 +148,13 @@ plot_c_15 <- cap_cisp_roubos_15 %>%
   geom_sf(aes(geometry = geometry, fill = cel_c_s), alpha = 5, col = "white") +
   scale_fill_viridis_c(name = "Roubos", labels = scales::comma) +
   labs(title = "Mapa dos Roubos de Celular na Cidade do Rio de Janeiro", subtitle = "2015")
-plot_c_15
 
 plot_v_15 <- cap_cisp_roubos_15 %>%
   ggplot() +
   geom_sf(aes(geometry = geometry, fill = veic_c_s), alpha = 5, col = "white") +
   scale_fill_viridis_c(name = "x", labels = scales::comma) +
-  labs(title = "Mapa dos Roubos de Veículos da Cidade do Rio de Janeiro",
+  labs(title = "Mapa dos Roubos de Veiculos da Cidade do Rio de Janeiro",
        subtitle = "2015")
-plot_v_15
 
 #### 2019
 cap_cisp_19 <- roubo_cisp %>%
@@ -190,15 +175,13 @@ plot_c_19 <- cap_cisp_roubos_19 %>%
   geom_sf(aes(geometry = geometry, fill = cel_c_s), alpha = 5, col = "white") +
   scale_fill_viridis_c(name = "Roubos", labels = scales::comma) +
   labs(title = "Mapa dos Roubos de Celular na Cidade do Rio de Janeiro", subtitle = "2019")
-plot_c_19
 
 plot_v_19 <- cap_cisp_roubos_19 %>%
   ggplot() +
   geom_sf(aes(geometry = geometry, fill = veic_c_s), alpha = 5, col = "white") +
   scale_fill_viridis_c(name = "x", labels = scales::comma) +
-  labs(title = "Mapa dos Roubos de Veículoss da Cidade do Rio de Janeiro",
+  labs(title = "Mapa dos Roubos de Veiculos da Cidade do Rio de Janeiro",
        subtitle = "2019")
-plot_v_19
 
 #### 2020
 cap_cisp_20 <- roubo_cisp %>%
@@ -219,15 +202,13 @@ plot_c_20 <- cap_cisp_roubos_20 %>%
   geom_sf(aes(geometry = geometry, fill = cel_c_s), alpha = 5, col = "white") +
   scale_fill_viridis_c(name = "Roubos", labels = scales::comma) +
   labs(title = "Mapa dos Roubos de Celular na Cidade do Rio de Janeiro", subtitle = "2020")
-plot_c_20
 
 plot_v_20 <- cap_cisp_roubos_20 %>%
   ggplot() +
   geom_sf(aes(geometry = geometry, fill = veic_c_s), alpha = 5, col = "white") +
   scale_fill_viridis_c(name = "x", labels = scales::comma) +
-  labs(title = "Mapa dos Roubos de Veículos da Cidade do Rio de Janeiro",
+  labs(title = "Mapa dos Roubos de Veiculos da Cidade do Rio de Janeiro",
        subtitle = "2020")
-plot_v_20
 
 ###### combinando graficos
 mapas_cel <- grid.arrange(plot_c_11, plot_c_15, plot_c_19, plot_c_20, ncol=2)
